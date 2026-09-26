@@ -1,0 +1,904 @@
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --background: #f1f5f9;
+    --surface: #ffffff;
+
+    --text: #0f172a;
+    --text-secondary: #64748b;
+
+    --border: #e2e8f0;
+
+    --success: #16a34a;
+    --success-dark: #15803d;
+
+    --danger: #dc2626;
+    --danger-dark: #b91c1c;
+
+    --warning: #f59e0b;
+
+    --radius: 12px;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+
+/* ==============================
+   CABEÇALHO
+================================ */
+
+header {
+    background: #0f172a;
+    color: white;
+
+    padding: 32px 20px;
+    text-align: center;
+
+    border-bottom: 4px solid var(--primary);
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+header p {
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+
+/* ==============================
+   CONTEÚDO PRINCIPAL
+================================ */
+
+main {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+
+/* ==============================
+   CARDS / SEÇÕES
+================================ */
+
+section {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 28px;
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+section h2 {
+    font-size: 20px;
+    margin-bottom: 22px;
+}
+
+
+/* ==============================
+   FORMULÁRIOS
+================================ */
+
+form {
+    display: flex;
+    align-items: flex-end;
+
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #334155;
+}
+
+
+/* ==============================
+   INPUTS
+================================ */
+
+input[type="text"],
+input[type="number"] {
+    width: 260px;
+    height: 42px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    background: white;
+
+    font-size: 15px;
+    color: var(--text);
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: #94a3b8;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* Remove aparência das setas do number */
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+}
+
+
+/* ==============================
+   CHECKBOX PCD
+================================ */
+
+label:has(input[type="checkbox"]) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 9px;
+
+    height: 42px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    accent-color: var(--primary);
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   BOTÕES
+================================ */
+
+button {
+    height: 42px;
+
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--primary);
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.1s,
+        box-shadow 0.2s;
+}
+
+button:hover {
+    background: var(--primary-dark);
+
+    box-shadow:
+        0 4px 10px rgba(37, 99, 235, 0.22);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+
+/* ==============================
+   BOTÃO DE SAÍDA
+================================ */
+
+#form-saida button {
+    background: var(--danger);
+}
+
+#form-saida button:hover {
+    background: var(--danger-dark);
+
+    box-shadow:
+        0 4px 10px rgba(220, 38, 38, 0.22);
+}
+
+
+/* ==============================
+   ESTACIONAMENTO
+================================ */
+
+.estacionamento h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ==============================
+   DIALOG DE VEÍCULOS
+================================ */
+
+#meu-dialog {
+    position: relative;
+
+    width: min(90%, 650px);
+    max-height: 80vh;
+
+    margin: auto;
+    padding: 0;
+
+    border: none;
+    border-radius: 16px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+}
+
+
+/* Fundo atrás do dialog */
+
+#meu-dialog::backdrop {
+    background: rgba(15, 23, 42, 0.65);
+
+    backdrop-filter: blur(3px);
+}
+
+
+/* Título do dialog */
+
+#meu-dialog > h2 {
+    margin: 0;
+
+    padding: 24px 60px 20px 24px;
+
+    font-size: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* ==============================
+   BOTÃO FECHAR DIALOG
+================================ */
+
+#fechar-dialog {
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        color 0.2s,
+        transform 0.2s;
+}
+
+#fechar-dialog:hover {
+    background: #fee2e2;
+    color: var(--danger);
+
+    box-shadow: none;
+
+    transform: scale(1.05);
+}
+
+
+/* ==============================
+   LISTA DE VEÍCULOS
+================================ */
+
+.veiculos {
+    padding: 20px 24px 24px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    max-height: 60vh;
+
+    overflow-y: auto;
+}
+
+
+/* ==============================
+   CARD DO VEÍCULO
+================================ */
+
+.veiculo {
+    position: relative;
+
+    min-height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.veiculo:hover {
+    transform: translateY(-2px);
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.veiculo h3 {
+    margin: 0 0 8px;
+
+    padding-right: 45px;
+
+    font-size: 16px;
+    color: var(--text);
+}
+
+.veiculo p {
+    margin: 0;
+
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+
+/* ==============================
+   VEÍCULO PCD
+================================ */
+
+.veiculo.pcd {
+    background: #eff6ff;
+
+    border-color: #93c5fd;
+}
+
+.veiculo.pcd::after {
+    content: "PCD";
+
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    padding: 4px 8px;
+
+    border-radius: 20px;
+
+    background: #dbeafe;
+    color: #1d4ed8;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   SCROLL DO DIALOG
+================================ */
+
+.veiculos::-webkit-scrollbar {
+    width: 7px;
+}
+
+.veiculos::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.veiculos::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+
+    border-radius: 10px;
+}
+
+.veiculos::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* ==============================
+   LEGENDA
+================================ */
+
+.legenda {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+    padding: 12px 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.legenda span {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--text-secondary);
+}
+
+
+/* ==============================
+   GRID DAS VAGAS
+================================ */
+
+.vagas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(130px, 1fr));
+
+    gap: 16px;
+}
+
+
+/* ==============================
+   VAGA
+================================ */
+
+.vaga {
+    position: relative;
+
+    min-height: 130px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+
+    border: 2px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.vaga:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.vaga h3 {
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+.vaga p {
+    font-size: 13px;
+
+    color: var(--text-secondary);
+
+    margin-top: 3px;
+}
+
+
+/* ==============================
+   VAGA LIVRE
+================================ */
+
+.vaga.livre {
+    background: #f0fdf4;
+
+    border-color: #86efac;
+}
+
+.vaga.livre::before {
+    content: "LIVRE";
+
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    padding: 3px 7px;
+
+    border-radius: 20px;
+
+    background: #dcfce7;
+    color: #15803d;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   VAGA OCUPADA
+================================ */
+
+.vaga.ocupada {
+    background: #fef2f2;
+
+    border-color: #fca5a5;
+}
+
+.vaga.ocupada::before {
+    content: "OCUPADA";
+
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    padding: 3px 7px;
+
+    border-radius: 20px;
+
+    background: #fee2e2;
+    color: #b91c1c;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   VAGA PCD
+================================ */
+
+.vaga.pcd {
+    border-color: #60a5fa;
+}
+
+.vaga.pcd::after {
+    content: "PCD";
+
+    position: absolute;
+
+    bottom: 8px;
+    right: 8px;
+
+    padding: 3px 7px;
+
+    background: #dbeafe;
+    color: #1d4ed8;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   VAGA EXTRA
+================================ */
+
+.vaga.extra {
+    border-color: #fbbf24;
+}
+
+.vaga.extra::after {
+    content: "EXTRA";
+
+    position: absolute;
+
+    bottom: 8px;
+    right: 8px;
+
+    padding: 3px 7px;
+
+    background: #fef3c7;
+    color: #b45309;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   COMBINAÇÃO PCD + LIVRE
+================================ */
+
+.vaga.pcd.livre {
+    background: #eff6ff;
+}
+
+
+/* ==============================
+   COMBINAÇÃO EXTRA + LIVRE
+================================ */
+
+.vaga.extra.livre {
+    background: #fffbeb;
+}
+
+
+/* ==============================
+   OCUPADA TEM PRIORIDADE VISUAL
+================================ */
+
+.vaga.pcd.ocupada,
+.vaga.extra.ocupada {
+    background: #fef2f2;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE - TABLET
+================================ */
+
+@media (max-width: 900px) {
+
+    .vagas {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* ==============================
+   RESPONSIVIDADE - CELULAR
+================================ */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 25px 15px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    header p {
+        font-size: 13px;
+    }
+
+
+    main {
+        margin: 20px auto;
+
+        padding: 0 12px;
+    }
+
+
+    section {
+        padding: 20px;
+
+        margin-bottom: 16px;
+    }
+
+    section h2 {
+        font-size: 18px;
+    }
+
+
+    form {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    form > div {
+        width: 100%;
+    }
+
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+    }
+
+
+    label:has(input[type="checkbox"]) {
+        height: auto;
+
+        padding: 5px 0;
+    }
+
+
+    button {
+        width: 100%;
+    }
+
+
+    .legenda {
+        gap: 12px;
+    }
+
+
+    .vagas {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .vaga {
+        min-height: 110px;
+
+        padding: 12px;
+    }
+
+    .vaga h3 {
+        font-size: 16px;
+    }
+
+    .vaga p {
+        font-size: 12px;
+    }
+
+
+    /* Dialog */
+
+    #meu-dialog {
+        width: 94%;
+
+        max-height: 85vh;
+    }
+
+    #meu-dialog > h2 {
+        padding:
+            20px
+            55px
+            18px
+            18px;
+
+        font-size: 19px;
+    }
+
+    #fechar-dialog {
+        width: 36px;
+        height: 36px;
+
+        top: 12px;
+        right: 12px;
+    }
+
+
+    /* Veículos */
+
+    .veiculos {
+        grid-template-columns: 1fr;
+
+        padding: 16px;
+    }
+
+    .veiculo {
+        min-height: 90px;
+
+        padding: 16px;
+    }
+
+}
+
+
+/* ==============================
+   TELAS MUITO PEQUENAS
+================================ */
+
+@media (max-width: 360px) {
+
+    .vagas {
+        grid-template-columns: 1fr;
+    }
+
+}

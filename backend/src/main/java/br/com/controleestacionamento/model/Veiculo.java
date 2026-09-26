@@ -2,10 +2,12 @@ package br.com.controleestacionamento.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class Veiculo {
 	private String placa;
 	private boolean possuiSeloPcd;
+	
+	public Veiculo() {
+	}
 	
 	public Veiculo(String placa, boolean possuiSeloPcd) {
 		this.placa = placa;

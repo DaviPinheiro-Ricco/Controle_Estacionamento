@@ -5,6 +5,9 @@ public class EntradaVeiculoDTO {
     private String placa;
     private int numeroVaga;
 
+    public EntradaVeiculoDTO() {
+    }
+    
     public EntradaVeiculoDTO(String placa, int numeroVaga) {
         this.placa = placa;
         this.numeroVaga = numeroVaga;

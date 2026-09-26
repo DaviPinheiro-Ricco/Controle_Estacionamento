@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 
 import br.com.controleestacionamento.model.enums.TipoVaga;
 
-@Component
 public class Vaga {
 
     private int numero;

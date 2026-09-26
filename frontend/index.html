@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle de Estacionamento</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         CABEÇALHO
+    ========================================== -->
+
+    <header>
+        <h1>Controle de Estacionamento</h1>
+        <p>Gerenciamento de veículos e vagas</p>
+    </header>
+
+
+    <main>
+
+        <!-- =====================================
+             CADASTRAR VEÍCULO
+        ====================================== -->
+
+        <section class="cadastro">
+
+            <h2>Cadastrar veículo</h2>
+
+            <form id="form-veiculo">
+
+                <div>
+                    <label for="placa">
+                        Placa
+                    </label>
+
+                    <input
+                        type="text"
+                        id="placa"
+                        placeholder="ABC1D23"
+                        maxlength="7"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="pcd"
+                        >
+
+                        Veículo possui selo PCD
+                    </label>
+                </div>
+
+
+                <button type="submit">
+                    Cadastrar
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =====================================
+             REGISTRAR ENTRADA
+        ====================================== -->
+
+        <section class="entrada">
+
+            <h2>Registrar entrada</h2>
+
+            <form id="form-entrada">
+
+                <button type="button" id="abrir-dialog">
+                    Selecionar Veículo
+                </button>
+
+                 <!-- =====================================
+                    DIALOG Veículos
+                ====================================== -->
+
+                    <dialog id="meu-dialog">
+                        <h2>Veículos</h2>
+                        
+                        <div id="veiculos" class="veiculos"></div>
+
+                        <button type="button" id="fechar-dialog">
+                            X
+                        </button>
+                    </dialog>
+
+            </form>
+
+        </section>
+
+
+        <!-- =====================================
+             REGISTRAR SAÍDA
+        ====================================== -->
+
+        <section class="saida">
+
+            <h2>Registrar saída</h2>
+
+            <form id="form-saida">
+
+                <div>
+                    <label for="placa-saida">
+                        Placa do veículo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="placa-saida"
+                        placeholder="ABC1D23"
+                        maxlength="7"
+                        required
+                    >
+                </div>
+
+
+                <button type="submit">
+                    Registrar saída
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =====================================
+             VAGAS
+        ====================================== -->
+
+        <section class="estacionamento">
+
+            <h2>Vagas do estacionamento</h2>
+
+            <div class="legenda">
+
+                <span>
+                    🟢 Livre
+                </span>
+
+                <span>
+                    🔴 Ocupada
+                </span>
+
+                <span>
+                    ♿ PCD
+                </span>
+
+                <span>
+                    🟡 Extra
+                </span>
+
+            </div>
+
+
+            <div
+                id="vagas"
+                class="vagas"
+            >
+
+                <!--
+                    Não precisamos escrever as 20 vagas aqui.
+
+                    O JavaScript fará:
+
+                    GET /estacionamento/vagas
+
+                    e criará as vagas automaticamente.
+                -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -15,7 +15,9 @@ import br.com.controleestacionamento.dto.EntradaVeiculoDTO;
 import br.com.controleestacionamento.model.Vaga;
 import br.com.controleestacionamento.model.Veiculo;
 import br.com.controleestacionamento.service.EstacionamentoService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/estacionamento")
 public class EstacionamentoController {
@@ -38,6 +40,13 @@ public class EstacionamentoController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(veiculo);
+    }
+    
+    @GetMapping("/veiculos")
+    public ResponseEntity<List<Veiculo>> consultarVeiculos(){
+    	return ResponseEntity
+    			.status(HttpStatus.OK)
+    			.body(estacionamentoService.consultarVeiculos());
     }
 
     // Registrar entrada

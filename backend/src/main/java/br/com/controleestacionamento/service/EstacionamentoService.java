@@ -1,6 +1,7 @@
 package br.com.controleestacionamento.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -42,6 +43,15 @@ public class EstacionamentoService {
         }
 
         veiculoRepository.salvar(veiculo);
+    }
+    
+    //Consultar Veículos
+    public List<Veiculo> consultarVeiculos(){
+    	if(veiculoRepository.listarTodos().isEmpty()) {
+    		return null;
+    	}
+    	
+    	return veiculoRepository.listarTodos();
     }
 
     // Registrar entrada
